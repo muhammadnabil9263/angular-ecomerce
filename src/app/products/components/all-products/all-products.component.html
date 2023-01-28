@@ -1,0 +1,36 @@
+<!-- All-Products Start -->
+<div class="container-fluid">
+  <select
+    class="form-select mb-3 ml-lg-5 col-lg-3 col-md-6 col-sm-12"
+    (change)="filterProducts($event)"
+    ngbDropdown
+    aria-label="Default select example"
+    id="dropdownBasic1"
+    ngbDropdownToggle
+  >
+    <option
+      [value]="category.id"
+      class="nav-item nav-link"
+      *ngFor="let category of categories"
+    >
+      {{ category.name }}
+    </option>
+  </select>
+  <div class="row px-xl-5 pb-3" *ngIf="!loader">
+    <div
+      class="col-lg-3 col-md-6 col-sm-12 pb-1"
+      *ngFor="let product of products"
+    >
+      <app-product [data]="product"  (item)="addItemToCart($event)"></app-product>
+
+    </div>
+  </div>
+</div>
+
+<div style="text-align: center; margin-top: 200px" *ngIf="loader">
+  <div class="spinner-grow" style="width: 3rem; height: 3rem" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<!-- All-Product  End -->

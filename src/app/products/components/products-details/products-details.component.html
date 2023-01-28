@@ -1,0 +1,102 @@
+<div class="container-fluid py-5">
+  <div class="row px-xl-5" *ngIf="!loader">
+    <div class="col-lg-5 pb-5">
+      <img class="w-100 h-100" src="{{ product.images[0] }}" alt="" />
+    </div>
+    <div class="col-lg-7 pb-5">
+      <h3 class="font-weight-semi-bold">{{ product.title }}</h3>
+      <div class="d-flex mb-3">
+        <div class="text-primary mr-2">
+          <small class="fas fa-star"></small>
+          <small class="fas fa-star"></small>
+          <small class="fas fa-star"></small>
+          <small class="fas fa-star-half-alt"></small>
+          <small class="far fa-star"></small>
+        </div>
+        <small class="pt-1">{{ product.price }} Reviewers</small>
+      </div>
+      <h3 class="font-weight-semi-bold mb-4">${{ product.price }}</h3>
+      <p class="mb-4">
+        {{ product.description }}
+      </p>
+      <div class="d-flex mb-3"></div>
+      <div class="d-flex mb-4">
+        <p class="text-dark font-weight-medium mb-0 mr-3">Colors:</p>
+        <form>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="color-1"
+              name="color"
+            />
+            <label class="custom-control-label" for="color-1">Black</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="color-2"
+              name="color"
+            />
+            <label class="custom-control-label" for="color-2">White</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="color-3"
+              name="color"
+            />
+            <label class="custom-control-label" for="color-3">Red</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="color-4"
+              name="color"
+            />
+            <label class="custom-control-label" for="color-4">Blue</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="color-5"
+              name="color"
+            />
+            <label class="custom-control-label" for="color-5">Green</label>
+          </div>
+        </form>
+      </div>
+      <div class="d-flex align-items-center mb-4 pt-2">
+        <div class="input-group quantity mr-3" style="width: 130px">
+          <div class="input-group-btn">
+            <button class="btn btn-primary btn-minus">
+              <i class="fa fa-minus"></i>
+            </button>
+          </div>
+          <input
+            type="text"
+            class="form-control bg-secondary text-center"
+            value="1"
+          />
+          <div class="input-group-btn">
+            <button class="btn btn-primary btn-plus">
+              <i class="fa fa-plus"></i>
+            </button>
+          </div>
+        </div>
+        <button class="btn btn-primary px-3" (click)="addToCart(product)">
+          <i class="fa fa-shopping-cart mr-1"></i> Add To Cart
+        </button>
+      </div>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 200px" *ngIf="loader">
+    <div class="spinner-grow" style="width: 3rem; height: 3rem" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>
